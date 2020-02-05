@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const usuario_model_1 = require("../models/usuario.model");
 const userPRoutes = express_1.Router();
-userPRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+userPRoutes.get('/UsuarioRutas', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let pagina = Number(req.query.pagina) || 1;
     let skip = pagina - 1;
     skip = skip * 10;

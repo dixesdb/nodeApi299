@@ -19,7 +19,7 @@ const file_system_1 = __importDefault(require("../classes/file-system"));
 const postRoutes = express_1.Router();
 const fileSystem = new file_system_1.default();
 // Obtener POST paginados
-postRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+postRoutes.get('/usuarioSesion', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let pagina = Number(req.query.pagina) || 1;
     let skip = pagina - 1;
     skip = skip * 10;
@@ -36,7 +36,7 @@ postRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     });
 }));
 // Crear POST
-postRoutes.post('/', [autenticacion_1.verificaToken], (req, res) => {
+postRoutes.post('/usuariosSesion', [autenticacion_1.verificaToken], (req, res) => {
     const body = req.body;
     body.usuario = req.usuario._id;
     const imagenes = fileSystem.imagenesDeTempHaciaPost(req.usuario._id);

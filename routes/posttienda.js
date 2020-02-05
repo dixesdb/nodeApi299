@@ -19,7 +19,7 @@ const file_systemT_1 = __importDefault(require("../classes/file-systemT"));
 const postTiendaRoutes = express_1.Router();
 const fileSystem = new file_systemT_1.default();
 // Obtener POST paginados
-postTiendaRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+postTiendaRoutes.get('/Posttienda', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let pagina = Number(req.query.pagina) || 1;
     let skip = pagina - 1;
     skip = skip * 10;
@@ -36,7 +36,7 @@ postTiendaRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, functi
     });
 }));
 // Crear POST
-postTiendaRoutes.post('/', [autenticacion_1.verificaToken], (req, res) => {
+postTiendaRoutes.post('/postiendaP', [autenticacion_1.verificaToken], (req, res) => {
     const body = req.body;
     body.usuario = req.usuario._id;
     const imagenes = fileSystem.imagenesDeTempHaciaPost(req.usuario._id);
